@@ -6,7 +6,7 @@
 //      - James, id: 2, in Columbia
 //      - Serena, id: 5, in San Francisco
 export default function getListStudents() {
-  let students = [
+  const students = [
     { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
     { id: 2, firstName: 'James', location: 'Columbia' },
     { id: 5, firstName: 'Serena', location: 'San Francisco' },

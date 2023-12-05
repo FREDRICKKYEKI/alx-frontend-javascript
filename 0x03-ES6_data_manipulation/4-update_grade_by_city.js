@@ -14,14 +14,14 @@
 export default function updateStudentGradeByCity(
   arrayOfStudents,
   city,
-  newGrades
+  newGrades,
 ) {
   const studentsByCity = arrayOfStudents.filter(
-    (student) => student.location === city
+    (student) => student.location === city,
   );
   const studentsWithNewGrades = studentsByCity.map((student) => {
     const studentGrade = newGrades.filter(
-      (grade) => grade.studentId === student.id
+      (grade) => grade.studentId === student.id,
     );
     const grade = studentGrade.length === 1 ? studentGrade[0].grade : 'N/A';
     return {
