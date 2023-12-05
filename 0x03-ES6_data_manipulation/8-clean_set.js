@@ -5,11 +5,18 @@
 //  The string contains all the values of the set separated by -
 
 export default function cleanSet(set, startString) {
-  let string = '';
-  for (const item of set) {
-    if (item.startsWith(startString) && startString.length > 0) {
-      string += `${item.slice(startString.length)}-`;
+  const parts = [];
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+    return '';
+  }
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      const valueSubStr = value.substring(startString.length);
+
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
+      }
     }
   }
-  return string.slice(0, string.length - 1);
+  return parts.join('-');
 }
